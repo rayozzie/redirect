@@ -20,15 +20,15 @@ func root(w http.ResponseWriter, r *http.Request) {
 	case "/zoom":
 		redirect = "https://zoom.us/j/9782268377"
 
-	case "highrock":
+	case "/highrock":
 		redirect = "https://www.dropbox.com/sh/0zkf8wlizgwrl8o/AAA9L4txDf9cCGgTV9yQEX-7a"
 
-	case "rocks":
+	case "/rocks":
 		redirect = "https://www.dropbox.com/sh/t5ab0zdszdv4pib/OQlqz9XmdP"
 
-	case "fam1ly":
+	case "/fam1ly":
 		fallthrough
-	case "family":
+	case "/family":
 		redirect = "https://www.dropbox.com/sh/jc5vpxiihwsdvyu/IgWm75kT6U"
 
 	default:
