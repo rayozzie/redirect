@@ -3,6 +3,6 @@
 cd ~/redirect
 
 while [ : ]; do
-	./run-this.sh
+	./run-once.sh
 	sleep 1s
 done
