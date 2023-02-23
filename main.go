@@ -11,17 +11,33 @@ func main() {
 }
 
 func root(w http.ResponseWriter, r *http.Request) {
+	redirect := ""
 
 	switch r.URL.String() {
 
 	case "/z00m":
 		fallthrough
 	case "/zoom":
-		http.Redirect(w, r, "https://zoom.us/j/9782268377", http.StatusTemporaryRedirect)
+		redirect = "https://zoom.us/j/9782268377"
+
+	case "highrock":
+		redirect = "https://www.dropbox.com/sh/0zkf8wlizgwrl8o/AAA9L4txDf9cCGgTV9yQEX-7a"
+
+	case "rocks":
+		redirect = "https://www.dropbox.com/sh/t5ab0zdszdv4pib/OQlqz9XmdP"
+
+	case "fam1ly":
+		fallthrough
+	case "family":
+		redirect = "https://www.dropbox.com/sh/jc5vpxiihwsdvyu/IgWm75kT6U"
 
 	default:
 		fmt.Fprintf(w, "%s ???", r.URL)
 
+	}
+
+	if redirect != "" {
+		http.Redirect(w, r, redirect, http.StatusTemporaryRedirect)
 	}
 
 }
