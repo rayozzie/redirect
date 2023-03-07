@@ -15,6 +15,9 @@ func root(w http.ResponseWriter, r *http.Request) {
 
 	switch r.URL.String() {
 
+	case "ping":
+		w.Write([]byte("howdy"))
+
 	case "/z00m":
 		fallthrough
 	case "/zoom":
