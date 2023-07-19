@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"net/http"
+	"strings"
 )
 
 func main() {
@@ -11,8 +12,13 @@ func main() {
 }
 
 func root(w http.ResponseWriter, r *http.Request) {
-	redirect := ""
 
+	if strings.HasPrefix(r.URL.String(), "/feed/") {
+		handleFeed(w, r)
+		return
+	}
+
+	redirect := ""
 	switch r.URL.String() {
 
 	case "/ping":

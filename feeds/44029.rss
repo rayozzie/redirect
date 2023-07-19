@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="/rss/ndbcrss.xsl"?>
+<rss version="2.0" xmlns:georss="http://www.georss.org/georss" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>NDBC - Station 44029 - Buoy A01 - Massachusetts Bay Observations</title>
+    <description><![CDATA[This feed shows recent marine weather observations from Station 44029.]]></description>
+    <link>https://www.ndbc.noaa.gov/</link>
+    <pubDate>Wed, 19 Jul 2023 19:21:01 +0000</pubDate>
+    <lastBuildDate>Wed, 19 Jul 2023 19:21:01 +0000</lastBuildDate>
+    <ttl>30</ttl>
+    <language>en-us</language>
+    <managingEditor>webmaster.ndbc@noaa.gov (NDBC Webmaster)</managingEditor>
+    <webMaster>webmaster.ndbc@noaa.gov (NDBC Webmaster)</webMaster>
+    <image>
+      <url>https://www.ndbc.noaa.gov/images/noaa_nws_xml_logo.gif</url>
+      <title>NDBC - Station 44029 - Buoy A01 - Massachusetts Bay Observations</title>
+      <link>https://www.ndbc.noaa.gov/</link>
+    </image>
+    <atom:link href="https://www.ndbc.noaa.gov/data/latest_obs/44029.rss" rel="self" type="application/rss+xml" />
+    <item>
+      <pubDate>Wed, 19 Jul 2023 19:21:01 +0000</pubDate>
+      <title>Station 44029 - Buoy A01 - Massachusetts Bay</title>
+      <description><![CDATA[
+        <strong>July 19, 2023 2:04 pm EDT</strong><br />
+        <strong>Location:</strong> 42.523N 70.566W<br />
+        <strong>Wind Direction:</strong> SW (220&#176;)<br />
+        <strong>Wind Speed:</strong> 5.8 knots<br />
+        <strong>Wind Gust:</strong> 5.8 knots<br />
+        <strong>Significant Wave Height:</strong> 2.6 ft<br />
+        <strong>Dominant Wave Period:</strong> 8 sec<br />
+        <strong>Atmospheric Pressure:</strong> 29.93 in (1013.4 mb)<br />
+        <strong>Air Temperature:</strong> 71.1&#176;F (21.7&#176;C)<br />
+        <strong>Water Temperature:</strong> 65.8&#176;F (18.8&#176;C)<br />
+        <strong>Visibility:</strong> 1.6 nmi<br />
+      ]]></description>
+      <link>https://www.ndbc.noaa.gov/station_page.php?station=44029</link>
+      <guid isPermaLink="false">NDBC-44029-20230719180400</guid>
+      <georss:point>42.523 -70.566</georss:point>
+    </item>
+  </channel>
+</rss>
