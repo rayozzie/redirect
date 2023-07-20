@@ -38,7 +38,7 @@ func handleFeed(w http.ResponseWriter, r *http.Request) {
 		auth = true
 	}
 
-	contents, err := os.ReadFile("feeds/filename")
+	contents, err := os.ReadFile(fmt.Sprintf("feeds/%s", filename))
 	if err != nil {
 		w.WriteHeader(http.StatusNotFound)
 		return
