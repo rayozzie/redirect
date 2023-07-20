@@ -3,34 +3,52 @@ package main
 import (
 	"fmt"
 	"net/http"
+	"os"
+	"strings"
 )
 
 func handleFeed(w http.ResponseWriter, r *http.Request) {
-	var (
-		username = "abc"
-		password = "123"
-	)
 
-	fmt.Printf("get feed for %s\n", r.URL.String())
+	filename := strings.TrimPrefix(r.URL.String(), "/feed/")
+	fmt.Printf("get feed for %s\n", filename)
+	if filename == "" {
+		w.WriteHeader(http.StatusNotFound)
+		return
+	}
 
+	auth := false
 	u, p, ok := r.BasicAuth()
-	if !ok {
-		fmt.Println("Error parsing basic auth")
-		w.WriteHeader(401)
+	if ok {
+		// curl -vv 'http://abc:123@ozz.ie/feed/test'
+		// {"req":"web.get","route":"feed"} with route being that same thing
+		var (
+			username = "abc"
+			password = "123"
+		)
+		if u != username {
+			fmt.Printf("Username provided is correct: %s\n", u)
+			w.WriteHeader(http.StatusUnauthorized)
+			return
+		}
+		if p != password {
+			fmt.Printf("Password provided is correct: %s\n", u)
+			w.WriteHeader(http.StatusUnauthorized)
+			return
+		}
+		auth = true
+	}
+
+	contents, err := os.ReadFile("feeds/filename")
+	if err != nil {
+		w.WriteHeader(http.StatusNotFound)
 		return
 	}
-	if u != username {
-		fmt.Printf("Username provided is correct: %s\n", u)
-		w.WriteHeader(401)
-		return
-	}
-	if p != password {
-		fmt.Printf("Password provided is correct: %s\n", u)
-		w.WriteHeader(401)
-		return
-	}
-	fmt.Printf("Username: %s\n", u)
-	fmt.Printf("Password: %s\n", p)
-	w.WriteHeader(200)
+
+	// Set cache paramter (max-age is in units of seconds)
+	_ = auth
+	w.Header().Set("Cache-Control", "public, max-age=60")
+	w.Header().Set("Content-Type", "application/xml")
+	w.WriteHeader(http.StatusOK)
+	w.Write(contents)
 
 }
