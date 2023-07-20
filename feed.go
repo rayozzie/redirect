@@ -46,7 +46,9 @@ func handleFeed(w http.ResponseWriter, r *http.Request) {
 
 	// Set cache paramter (max-age is in units of seconds)
 	_ = auth
-	w.Header().Set("Cache-Control", "public, max-age=60")
+	if !auth {
+		w.Header().Set("Cache-Control", "public, max-age=60")
+	}
 	w.Header().Set("Content-Type", "application/xml")
 	w.WriteHeader(http.StatusOK)
 	w.Write(contents)
