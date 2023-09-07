@@ -1,3 +1,5 @@
+// {"req":"web.get","route":"feed","name":"44029.rss"}
+// {"req":"web.get","route":"feed-auth","name":"44029.rss"}
 package main
 
 import (
