@@ -38,6 +38,9 @@ func root(w http.ResponseWriter, r *http.Request) {
 	case "/firmware":
 		redirect = "https://notecard-firmware.s3.amazonaws.com/index.html"
 
+	case "/archive":
+		redirect = "https://blues-event-archive.s3.amazonaws.com/index.html"
+
 	case "/fam1ly":
 		fallthrough
 	case "/family":
